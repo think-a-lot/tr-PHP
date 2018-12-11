@@ -17,8 +17,10 @@
     $num = $_POST['num'];
     if ( $num < 0 ){
       echo "<br>「".$num."」is Nagative Number";
-    }else{
+    }elseif( $num > 0 ){
       echo "<br>「".$num."」is Positive Number";
+    }else{
+      echo "<br>「".$num."」is Neutral Number";      
     }
   }
 ?>

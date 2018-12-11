@@ -15,10 +15,10 @@
 <?php
   if(isset($_POST['check'])){
     $num = $_POST['num'];
-    if ( $num < 0 ){
-      echo "<br>「".$num."」is Nagative Number";
+    if ( $num % 2 == 0 ){
+      echo "<br>「".$num."」is Even Number";
     }else{
-      echo "<br>「".$num."」is Positive Number";
+      echo "<br>「".$num."」is Odd Number";
     }
   }
 ?>
