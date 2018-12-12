@@ -21,15 +21,15 @@ background: linear-gradient(90deg, rgba(0,190,222,1) 0%, rgba(201,0,255,1) 100%)
 </head>
 <body>
   <div class="container bg-white p-0 rounded mt-3">
-    
+
      <div>
        <div class="col-12 p-4 text-center bg-dark text-white rounded-top h2">
          14 Activity04 - Select Product
        </div>
      </div>
-     
+
      <form class="p-5" action="14-2_Activity04_SelectProduct_Result.php" method="post">
-       
+
        <div class="form-row m-4">
          <div class="form-group col-sm-2 pt-3">
            <label for="">Name</label>        
@@ -48,7 +48,7 @@ background: linear-gradient(90deg, rgba(0,190,222,1) 0%, rgba(201,0,255,1) 100%)
 
        <div class="form-row m-4">
          <div class="form-group col-sm-2 pt-2">
-           <label for="">Product</label>        
+           <label for="">Product</label>  
          </div>
          <div class="form-group col-sm-10">
            <select type="text" class="form-control bg-light" style="height:3rem;" name="product" id="">
@@ -60,7 +60,7 @@ background: linear-gradient(90deg, rgba(0,190,222,1) 0%, rgba(201,0,255,1) 100%)
            </select>
          </div>
        </div>
-  
+
        <div class="form-row m-4">
          <div class="form-group col-sm-2 pt-3">
            <label for="">Quantity</label>        
@@ -78,7 +78,7 @@ background: linear-gradient(90deg, rgba(0,190,222,1) 0%, rgba(201,0,255,1) 100%)
           </label>
         </div>
        </div>     
-       
+
        <div class="m-4">
         <button type="submit" class="btn btn-primary p-3 pl-5 pr-5 rounded" name="submit" value="register">Submit</button>  
        </div>       
