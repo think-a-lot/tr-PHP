@@ -59,11 +59,11 @@ background: linear-gradient(90deg, rgba(0,190,222,1) 0%, rgba(201,0,255,1) 100%)
            Product        
          </div>
          <div class="form-group col-sm-4">
-           <?php echo '<div class="bg-light p-4">'.$Product.'</div>' ;?>          
+           <?php echo '<div class="bg-light p-4">'.$Product.'</div>' ;?>
          </div>
          
          <div class="form-group col-sm-2 align-items-center  d-flex justify-content-end">
-           On Sale?        
+           On Sale?
          </div>
          <div class="form-group col-sm-4 ">
            <?php echo '<div class="bg-light p-4">'.$Sale.'</div>' ;?>
@@ -72,11 +72,11 @@ background: linear-gradient(90deg, rgba(0,190,222,1) 0%, rgba(201,0,255,1) 100%)
   
        <div class="form-row m-4">
          <div class="form-group col-sm-2 align-items-center d-flex justify-content-end">
-           Item Price        
+           Item Price  
          </div>
          <div class="form-group col-sm-4">
            <div class="bg-light p-4">  
-           <?php 
+           <?php
                    if ( $Product == "T-shirt"){ 
                      $exPrice = 500;
                      if ( $Sale == "✔" ){ $saleNum = 20; }
