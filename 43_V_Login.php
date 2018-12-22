@@ -11,7 +11,7 @@
   <title></title>
 </head>
 <body>
- 
+
   <form action="43_M_UserAction.php" method="post">
    
     <input type="text" name="uName" placeholder="UserName">

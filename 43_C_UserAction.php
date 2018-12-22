@@ -1,5 +1,5 @@
 <?php
-
+  
   // 43_C_UserAction.php
   
   //                 ↙　43_M_User
@@ -22,7 +22,13 @@
     $fName = $_POST['fName'];
     $lName = $_POST['lName'];
     
-    $user->insertData($userName,$password,$lName,$fName);
+    $result = $user->insertData($userName,$password,$lName,$fName);
+    
+    if($result == 0){
+      echo "Username already existed. Please try again.";
+    }else{
+      echo "Record saved succesfully";
+    }
     
   }elseif(isset($_POST['login'])){
     $userName = $_POST['uName'];

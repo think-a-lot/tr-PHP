@@ -14,14 +14,29 @@
     
     // C - create database, create table insert data
     public function insertData($u,$p,$lN,$fN){
-      $sql = "INSERT INTO user(userName,password) VALUES('$u','$p')";
-      $result = $this->conn->query($sql) or die("Insertion/Saving error: ".$this->conn->error);
       
-      if($result){
-        $id = mysqli_insert_id($this->conn);
-        $sql = "INSERT INTO employee(fName,lName,userID) VALUES('$fN','$lN','$id')";
+      // 1. check/query first in your user table if username already 
+      // 2. if username exists in user table give message that user 
+      // 3. if username does not exist Insert Into database
+      // 4. 
+      
+      $sql = "SELECT * FROM user WHERE userName = '$u' ";
+      $result = $this->conn->query($sql); //execution of the sql statement, Go button
+      
+      if($result->num_rows == 1){
+        return 0;
+        
+      }else{
+        $sql = "INSERT INTO user(userName,password) VALUES('$u','$p')";
         $result = $this->conn->query($sql) or die("Insertion/Saving error: ".$this->conn->error);
+
+        if($result){
+          $id = mysqli_insert_id($this->conn);
+          $sql = "INSERT INTO employee(fName,lName,userID) VALUES('$fN','$lN','$id')";
+          $result = $this->conn->query($sql) or die("Insertion/Saving error: ".$this->conn->error);
+        }
       }
+
     }
     
     // R - retrieve data from table (display all record, specific record) select statement
