@@ -21,6 +21,19 @@ if(isset($_POST['addUser'])){
         echo "result is ".$result."<br>";
         echo "Record saved succesfully";
     }
+    
+}elseif(isset($_POST['addCategory'])){
+    $categoryName = $_POST['categoryName'];
+
+    $result = $user->insertCategory($categoryName);
+
+    if($result == false){
+        echo "result is ".$result."<br>";
+        echo "Category Name already existed. Please try again.";
+    }else{
+        echo "result is ".$result."<br>";
+        echo "Category saved succesfully";
+    }
 }
 
 ?>

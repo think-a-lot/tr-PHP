@@ -17,6 +17,18 @@ class User extends Database {
       return true;
     }
   }
+
+  public function insertCategory($categoryName){
+    $sql = "SELECT * FROM categories WHERE categoryName = '$categoryName' ";
+    $result = $this->conn->query($sql);
+    if($result->num_rows >= 1){
+      return false;
+    }else{
+      $sql = "INSERT INTO categories(categoryName) VALUES ('$categoryName')";
+      $result = $this->conn->query($sql) or die("Insertion/Saving error:".$this->conn->error);
+      return true;
+    }
+  }
 }
 
 ?>

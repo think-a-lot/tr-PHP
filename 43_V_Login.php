@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <form action="43_M_UserAction.php" method="post">
+  <form action="43_C_UserAction.php" method="post">
    
     <input type="text" name="uName" placeholder="UserName">
     <input type="text" name="pass" placeholder="Password">

@@ -85,7 +85,7 @@
           <label for="formGroupExampleInput">Email</label>
           <input name="email" type="email" class="form-control" id="formGroupExampleInput" placeholder="" required>
         </div>
-        <div class="form-group pb-4">
+        <div class="form-group pb-2">
           <label for="formGroupExampleInput2">Password</label>
           <input name="password" type="password" class="form-control" id="formGroupExampleInput2" placeholder="" required>
         </div>

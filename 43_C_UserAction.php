@@ -16,7 +16,7 @@
   $user = new User;
   
   //adding a new user
-  if(isset($_POST['addUser'])){
+  if(isset($_POST['addUser'])){ // ADD USER
     $userName = $_POST['userName'];
     $password = $_POST['password'];
     $fName = $_POST['fName'];
@@ -29,8 +29,8 @@
     }else{
       echo "Record saved succesfully";
     }
-    
-  }elseif(isset($_POST['login'])){
+  
+  }elseif(isset($_POST['login'])){ // LOGIN
     $userName = $_POST['uName'];
     $password = $_POST['pass'];
     
@@ -44,7 +44,7 @@
       header("location: 43_V_Login.php");
     }
     
-  }elseif(isset($_POST['update'])){
+  }elseif(isset($_POST['update'])){ // UPDATE
     $userName = $_POST['uName'];
     $password = $_POST['password'];
     $fName = $_POST['fName'];
