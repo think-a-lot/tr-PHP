@@ -4,25 +4,26 @@ session_start();
 require_once "M_User.php";
 
 $user = new User;
+$_SESSION['userID'] = 7;
 
-if(isset($_POST['addUser'])){ 
+if(isset($_POST['addUser'])){ // ADD USER
     $f = $_POST['firstName'];
     $l = $_POST['lastName'];
     $e = $_POST['email'];
     $p = $_POST['password'];
     $cp = $_POST['confirmPassword'];
 
-    $result = $user->insertData($f,$l,$e,$p,$cp);
+    $result = $user->insertUser($f,$l,$e,$p,$cp);
 
     if($result == false){
         echo "result is ".$result."<br>";
-        echo "Username already existed. Please try again.";
+        echo "Email already existed. Please try again.";
     }else{
         echo "result is ".$result."<br>";
-        echo "Record saved succesfully";
+        echo "User Account saved succesfully";
     }
     
-}elseif(isset($_POST['addCategory'])){
+}elseif(isset($_POST['addCategory'])){  // ADD CATEGORY
     $categoryName = $_POST['categoryName'];
 
     $result = $user->insertCategory($categoryName);
@@ -34,6 +35,15 @@ if(isset($_POST['addUser'])){
         echo "result is ".$result."<br>";
         echo "Category saved succesfully";
     }
+
+}elseif(isset($_POST['addPost'])){  //ADD POST
+    $postTitle = $_POST['postTitle'];
+    $postCategory = $_POST['postCategory'];
+    $postContent = $_POST['postContent'];
+    $userID = $_SESSION['userID'];
+
+    $result = $user->insertPost($userID,$postTitle,$postCategory,$postContent);
+
 }
 
 ?>

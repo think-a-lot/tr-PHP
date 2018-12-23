@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  require_once("M_user.php");
+  $user = new User;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,77 +115,23 @@
           <table class="table table-striped">
             <thead class="table-dark">
               <tr class="">
-                <th>#</th>
+                <th>Date Posted</th>
                 <th>Title</th>
                 <th>Category</th>
-                <th>Date Posted</th>
-                <th></th>
+                <th>Link</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="">
-                <th>1</th>
-                <td>Post 1</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Post 2</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Post 3</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
-              <tr>
-                <th>4</th>
-                <td>Post 4</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
-              <tr>
-                <th>5</th>
-                <td>Post 5</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
-              <tr>
-                <th>6</th>
-                <td>Post 6</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
-              <tr>
-                <th>7</th>
-                <td>Post 7</td>
-                <td>Web Development</td>
-                <td>July22,2017</td>
-                <td>
-                  <button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button>
-                </td>
-              </tr>
+              <?php
+                $result = $user->getLatestPosts();
+                foreach($result as $key => $row){
+                  echo "<tr>";
+                  echo "<td>".$row['postDate']."</td>";
+                  echo "<td>".$row['postTitle']."</td>";
+                  echo "<td>".$row['postCategory']."</td>";
+                  echo '<td><a href="'.'"<button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button></td>';
+                }
+              ?>
             </tbody>
           </table> 
         </div>

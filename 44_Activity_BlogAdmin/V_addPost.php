@@ -81,25 +81,25 @@
       <form class="pl-5 pr-5 pb-5" action="C_UserControl.php" method="post">
         <div class="form-group pb-2">
           <label for="formGroupExampleInput">Title</label>
-          <input name="title" type="text" class="form-control" id="formGroupExampleInput" placeholder="" required>
+          <input name="postTitle" type="text" class="form-control" id="formGroupExampleInput" placeholder="" required>
         </div>
         <div class="form-group pb-2">
           <label for="formGroupExampleInput">Category</label><br>
-          <select name="category" id="formGroupExampleInput" class="form-control">
-            <option value="development">Web Devlopment</option>
-            <option value="design">Web Design</option>
-            <option value="seo">Web SEO</option>
-            <option value="writing">Web Writing</option>
-            <option value="network">Web Network</option>
-            <option value="security">Web Security</option>
+          <select name="postCategory" id="formGroupExampleInput" class="form-control">
+            <option value="Web Development">Web Devlopment</option>
+            <option value="Web Design">Web Design</option>
+            <option value="Web SEO">Web SEO</option>
+            <option value="Web Writing">Web Writing</option>
+            <option value="Web Network">Web Network</option>
+            <option value="Web Security">Web Security</option>
           </select>
         </div>
         <div class="form-group pb-2">
           <label for="formGroupExampleInput">Content</label>
-          <textarea name="content" id="formGroupExampleInput" cols="30" rows="10" class="form-control"></textarea>
+          <textarea name="postContent" id="formGroupExampleInput" cols="30" rows="10" class="form-control"></textarea>
         </div>
         
-        <button name="addUser" type="submit" class="btn btn-primary btn-block p-2">Add Post</button>
+        <button name="addPost" type="submit" class="btn btn-primary btn-block p-2">Add Post</button>
       </form>
       
     </div>
