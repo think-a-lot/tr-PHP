@@ -1,10 +1,10 @@
 <?php
 
 session_start();
+
 require_once "M_User.php";
 
 $user = new User;
-$_SESSION['userID'] = 7;
 
 if(isset($_POST['addUser'])){ // ADD USER
     $f = $_POST['firstName'];
@@ -44,6 +44,22 @@ if(isset($_POST['addUser'])){ // ADD USER
 
     $result = $user->insertPost($userID,$postTitle,$postCategory,$postContent);
 
-}
+}elseif(isset($_POST['login'])){ // Login
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
+    $status = $user->getLoginUserInfo($email,$password);
+    //$status = $_SESSION["status"];
+
+    if(( $status=="a" || $status=="A" ) ){
+        echo 'admin';
+        header("location: V_dashBoard.php");
+    }elseif(( $status=="u" || $status=="U" )){
+        echo 'normal user';
+        header("location: V_profile.php");
+    }else{
+        echo 'not found';
+        header("location: V_login.php");
+    }
+}
 ?>

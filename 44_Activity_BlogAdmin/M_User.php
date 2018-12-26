@@ -62,5 +62,21 @@ class User extends Database {
     return $newArray;
   }
 
+  public function getLoginUserInfo($e,$p){
+    $sql = "SELECT * FROM users WHERE email = '$e' AND password ='$p' ";
+    $result = $this->conn->query($sql);
+
+    if($result->num_rows == 1){
+      $row = $result->fetch_assoc();
+      $_SESSION["userID"] = $row['userID'];
+      $_SESSION["firstName"] = $row['firstName'];
+      $_SESSION["status"] = $row['status'];
+
+      return $row['status'];
+    }else{
+      return false;
+    }
+  }
+
 }
 ?>
