@@ -5,7 +5,7 @@ require_once "m_DB.php";
 class User extends Database {
   
   public function insertUser($f,$l,$e,$p,$cp){
-    // confirm with email
+    // confirm with email 
     $sql = "SELECT * FROM users WHERE email = '$e' ";
     $result = $this->conn->query($sql);
 
@@ -51,7 +51,16 @@ class User extends Database {
     }
     return $newArray;
   }
+
+  public function getListCategories(){
+    $sql = "SELECT * FROM categories";
+    $result = $this->conn->query($sql);
+    $newArray = array();
+    while($row = $result->fetch_assoc()){
+      $newArray[] = $row;
+    }
+    return $newArray;
+  }
+
 }
-
-
 ?>

@@ -22,6 +22,7 @@
     .card_aside_body{ font-size: 3rem; }
     .card-body > button { font-size: 1rem; }
     table tbody td:nth-last-child(1){ padding: 1.1rem; }
+    a.view{ color:white; }
   </style>
 </head>
 
@@ -129,7 +130,7 @@
                   echo "<td>".$row['postDate']."</td>";
                   echo "<td>".$row['postTitle']."</td>";
                   echo "<td>".$row['postCategory']."</td>";
-                  echo '<td><a href="'.'"<button class="rounded p-2"><i class="fas fa-angle-double-right"></i> Details</button></td>';
+                  echo '<td><a href=""><i class="fas fa-angle-double-right"></i> Details</a></td>';
                 }
               ?>
             </tbody>
@@ -142,17 +143,17 @@
         <div class="card_aside text-center border mb-3 bg-primary rounded text-white">
           <div class="card_aside_title pt-3">Posts</div>
           <div class="card_aside_body m-1"><i class="fas fa-pen"></i> 7</div>
-          <button class="btn rounded mt-2 mb-4 border text-white" style="background-color: rgba(0,0,0,0.0);">View</button>
+          <button class="btn rounded mt-2 mb-4 border text-white" style="background-color: rgba(0,0,0,0.0);"><a href="V_listPost.php" class="view">View</a></button>
         </div>
         <div class="card_aside text-center border mb-3 bg-success rounded text-white">
           <div class="card_aside_title pt-3">Categories</div>
           <div class="card_aside_body m-1"><i class="far fa-folder-open"></i> 4</div>
-          <button class="btn rounded mt-2 mb-4 border text-white" style="background-color: rgba(0,0,0,0.0);">View</button>
+          <button class="btn rounded mt-2 mb-4 border text-white" style="background-color: rgba(0,0,0,0.0);"><a href="V_listCategory.php" class="view">View</a></button>
         </div>
         <div class="card_aside text-center border mb-3 bg-warning rounded text-white">
           <div class="card_aside_title pt-3">Users</div>
           <div class="card_aside_body m-1"><i class="fas fa-users"></i> 6</div>
-          <button class="btn rounded mt-2 mb-4 border text-white" style="background-color: rgba(0,0,0,0.0);">View</button>
+          <button class="btn rounded mt-2 mb-4 border text-white" style="background-color: rgba(0,0,0,0.0);"><a href="V_listUser.php" class="view">View</a></button>
         </div>
         
       </div>
