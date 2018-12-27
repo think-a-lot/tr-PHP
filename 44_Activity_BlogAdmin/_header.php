@@ -38,7 +38,13 @@
 <!-- 1st row (nav) -->
   <nav class="navbar navbar-expand-sm navbar-light bg-primary text-white">
     <div class="container">
-      <a class="navbar-brand" href="#">Blogen</a>
+      <a class="navbar-brand" href="<?php 
+        if($status=="a" || $status=="A"){
+          echo 'v_dashBoard.php';
+        }else{
+          echo 'v_profile.php';
+        }
+      ?>">Blogen</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -82,8 +88,8 @@
               echo 
               '</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Setting</a>
+                <a class="dropdown-item" href="v_profile.php">Profile</a>
+                <a class="dropdown-item" href="v_setting.php">Setting</a>
               </div>';
             }
           ?>
