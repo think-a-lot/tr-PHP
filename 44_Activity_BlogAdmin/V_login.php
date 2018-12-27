@@ -1,5 +1,5 @@
 <?php
-  include "_header.php";
+    include "_header.php";
 ?>
 
 <!-- 2nd row -->
@@ -12,6 +12,13 @@
 <!-- 3th row -->
   <div class="row pl-5 pr-5 pb-5">
     <div class="container pt-4 col-md-6">
+
+    <?php
+      if(!empty($_SESSION['msg'])){
+        echo "<div class='alert alert-danger'><p class='text-center m-0'>".$_SESSION['msg']."</p></div>";
+        unset($_SESSION['msg']);
+      }
+    ?>
       
       <form class="p-5" method="post" action="C_UserControl.php">
         <div class="form-group pb-2">
@@ -25,6 +32,8 @@
         
         <button type="submit" name="login" class="btn btn-primary btn-block p-2">Login</button>
       </form>
+
+      <div class="text-center pb-5"><a href="v_addUser.php">Create New Account</a></div>
       
     </div>
   </div>

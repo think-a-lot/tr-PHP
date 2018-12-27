@@ -29,7 +29,7 @@
     .card_aside_body{ font-size: 3rem; }
     .card-body > button { font-size: 1rem; }
     table tbody td:nth-last-child(1){ padding: 1.1rem; }
-    a.view{ color:white; }
+    a.view, a.color_white{ color:white; }
   </style>
 </head>
 

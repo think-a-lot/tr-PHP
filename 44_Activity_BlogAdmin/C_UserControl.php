@@ -58,8 +58,23 @@ if(isset($_POST['addUser'])){ // ADD USER
         echo 'normal user';
         header("location: V_profile.php");
     }else{
-        echo 'not found';
+        $_SESSION['msg'] = "Invalid Username or Password";
+        echo $_SESSION['msg'];
         header("location: V_login.php");
     }
+}elseif(isset($_POST['updatePassword'])){ // Update Password
+    $newP = $_POST['newPassword'];
+    $conP = $_POST['conPassword'];
+    $userID = $_SESSION['userID'];
+    if($newP===$conP){
+        $user->updatePassword($userID,$newP,$conP);
+        echo "Success Updated in C_UserControl.php";
+    }else{
+        echo "Record not updated in C_UserControl.php";
+    }
+    header("location: v_changePassword.php");      
+}elseif(isset($_POST['deleteAccountPosts'])){
+    $userID = $_SESSION['userID'];
+    $user->deleteAccountPosts($userID);
 }
 ?>

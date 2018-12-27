@@ -12,8 +12,9 @@ class User extends Database {
     if($result->num_rows >= 1 || $p != $cp ){
       return false;
     }else{
-      $sql = "INSERT INTO users(firstName,lastName,email,password) VALUES('$f','$l','$e','$p')";
+      $sql = "INSERT INTO users(firstName,lastName,email,password,status) VALUES('$f','$l','$e','$p','U')";
       $result = $this->conn->query($sql) or die("Insertion/Saving error:".$this->conn->error);
+      return true;
     }
   }
 
@@ -76,6 +77,63 @@ class User extends Database {
     }else{
       return false;
     }
+  }
+
+  public function getOldPassword($userID){
+    $sql = "SELECT * FROM users WHERE userID ='$userID' ";
+    $result = $this->conn->query($sql);
+    if($result->num_rows == 1){
+      $row = $result->fetch_assoc();
+      return $row['password'];
+      // return "old password";
+    }else{
+      return false;
+    }
+  }
+
+  public function getName($userID){
+    $sql = "SELECT * FROM users WHERE userID ='$userID' ";
+    $result = $this->conn->query($sql);
+    if($result->num_rows == 1){
+      $row = $result->fetch_assoc();
+      $userName = $row['firstName']." ".$row['lastName'];      
+      return $userName;
+    }else{
+      return false;
+    }
+  }
+
+  public function getEmail($userID){
+    $sql = "SELECT * FROM users WHERE userID ='$userID' ";
+    $result = $this->conn->query($sql);
+    if($result->num_rows == 1){
+      $row = $result->fetch_assoc();
+      return $row['email'];
+    }else{
+      return false;
+    }
+  }
+
+  public function updatePassword($userID,$newP,$conP){
+    $sql = "SELECT * FROM users WHERE userID = '$userID' ";
+    $result = $this->conn->query($sql);
+
+    if($result->num_rows > 1 || $newP != $conP ){
+      echo "Record not updated in M_User.php".$this->conn->error;
+    }else{
+      $sql = "UPDATE users SET password = '$newP' WHERE userID = '$userID' ";
+      $result = $this->conn->query($sql) or die("Update Password ERROR:".$this->conn->error);
+    }
+  }
+
+  public function deleteAccountPosts($userID){
+    $sql = "DELETE FROM users WHERE userID = $userID ";
+    $result = $this->conn->query($sql);
+
+    $sql = "DELETE FROM posts WHERE userID = $userID ";
+    $result = $this->conn->query($sql);
+
+    header("location: v_logout.php");
   }
 
 }
